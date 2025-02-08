@@ -1,0 +1,81 @@
+{% extends 'quotes/base.html' %}
+
+{% load static %}
+{% block context %}
+<div class="container">
+    <div class="row">
+        <!-- profile information -->
+        <div class="col-md-8 offset-md-2 mb-4">
+            <div class="card bg-light">
+                <div class="card-header bg-primary text-white">
+                    Profile
+                </div>
+                <div class="card-body">
+                    <h2>Welcome, {{ user.username }}!</h2>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Nickname:</strong> {{ user.username }}</p>
+                    <a href="{% url 'users:password_reset' %}">Reset Password</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- added new quote -->
+        <div class="col-md-8 offset-md-2 mb-4">
+            <div class="card bg-light">
+                <div class="card-header bg-success text-white">
+                    Add a New Quote
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+
+                        <div class="form-group">
+                            {{ form.quote.label_tag }} {{ form.quote }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.tags.label_tag }} {{ form.tags }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="author-choice">Choose an author or input a new author:</label>
+                            <div id="author-choice">
+                                {{ form.author }}
+                                {{ form.new_author }}
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="button" class="btn btn-secondary" id="toggle-author-input">New Author</button>
+                            <button type="submit" class="btn btn-success">Add Quote</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- history added -->
+        <div class="col-md-8 offset-md-2">
+            <div class="card bg-light">
+                <div class="card-header bg-info text-white">
+                    History of Added Quotes
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for quote in quotes %}
+                        <li class="list-group-item bg-light">
+                            "{{ quote.quote }}" - <i>{{ quote.author }}</i>
+                        </li>
+                        {% empty %}
+                        <li class="list-group-item bg-light">You don't have any added quotes.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'users/script.js' %}"></script>
+{% endblock %}

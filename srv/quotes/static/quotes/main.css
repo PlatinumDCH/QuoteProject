@@ -1,0 +1,141 @@
+.lightblue-background {
+    background-color: lightblue;
+}
+
+.quote {
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #333333;
+}
+
+.quote span.text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: large;
+    font-style: italic;
+}
+
+.quote small.author {
+    font-weight: bold;
+    color: #3677E8;
+}
+
+.quote .tags {
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: small;
+    background-color: #7CA3E6;
+}
+
+/* total style for search navigation */
+ul.pager {
+    margin-bottom: 100px;
+}
+
+.pager {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-left: 0;
+    margin: 22px 0;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 10px 14px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #333333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pager .next>a, .pager .next>span {
+    float: right;
+}
+
+
+.pager .previous>a, .pager .previous>span {
+    float: left;
+}
+
+.pager li>a:hover, .pager li>span:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.pager .disabled a {
+    pointer-events: none;
+    color: #cccccc;
+    border-color: #cccccc;
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .quote {
+        padding: 15px;
+    }
+
+    .pager .next a {
+        padding: 8px;
+    }
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.author-details {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.author-details h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.author-details p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.author-details p strong {
+    color: #2c3e50;
+}
+
+.author-details p.description {
+    margin-top: 20px;
+    font-style: italic;
+    column-count: 4;
+    column-gap: 30px;
+    text-align: justify;
+}
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: none;
+    z-index: 99;
+    background-color: #007bff;
+    border: none;
+}
+
+#scrollTopBtn:hover {
+    background-color: #28a745;
+}

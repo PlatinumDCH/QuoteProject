@@ -1,0 +1,28 @@
+{% extends 'quotes/base.html' %}
+{% load static %}
+{% block context %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- left part: form registration -->
+        <div class="col-md-6">
+            <h2>Registration Form</h2>
+            <form method="post">
+                    {% csrf_token %}
+                    {{ registration_form.as_p }}
+                    <button type="submit" name="register" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+            </form>
+        </div>
+        <!-- right part: form authorisation -->
+        <div class="col-md-6">
+            <h2>Authorization Form</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ login_form.as_p }}
+                <button type="submit" name="login" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
