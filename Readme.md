@@ -5,6 +5,12 @@
 ## About This Project
 QuoteProject is a simple blog application developed using Django. It uses MongoDB for scraping quotes from other sites and uploading them to a PostgreSQL database. Users can create accounts, add new quotes, and view the history of added quotes.
 
+<*Home pages*>
+![alt text](<static/index.png>)
+<*Register pages*>
+![alt text](<static/register.png>)
+<*Account pages*>
+![alt text](<static/account.png>)
 ## Features
 - Scrape quotes from various sites and upload to PostgreSQL
 - User account creation and management

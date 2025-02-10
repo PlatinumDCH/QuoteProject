@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from decouple import config as decouple_config
 
@@ -8,7 +9,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = decouple_config("SECRET_KEY")
 
 DEBUG = decouple_config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS :list = []
+ALLOWED_HOSTS  = ["0.0.0.0"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -58,7 +59,7 @@ DATABASES = {
         "NAME": decouple_config("pg_database_name"),  
         "USER": decouple_config("pg_user"),
         "PASSWORD": decouple_config("pg_password"),
-        "HOST": decouple_config("pg_host"),
+        "HOST": decouple_config('pg_host'),
         "PORT": decouple_config("pg_port"),
     }
 }
@@ -108,7 +109,7 @@ LOGOUT_REDIRECT_URL = 'quotes:home'  # URL by refirect after logout
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
